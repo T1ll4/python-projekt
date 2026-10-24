@@ -1,4 +1,4 @@
-# 📐 Journal Figure Formatter
+#  Journal Figure Formatter
 
 **Tudományos kéziratok ábráinak, grafikonjainak, egyenleteinek és táblázatainak automatikus
 kinyerése, átméretezése és formázása a folyóiratok vizuális és felbontásbeli
@@ -88,18 +88,18 @@ streamlit run app.py
 
 Ezután a böngészőben megnyílik a `http://localhost:8501` cím.
 
-1. **📄 Feldolgozás**: töltse fel a kéziratot, válassza ki a folyóirat-sablont és ha kell,
+1. ** Feldolgozás**: töltse fel a kéziratot, válassza ki a folyóirat-sablont és ha kell,
    a méretezési módot, majd kattintson a **▶ Feldolgozás** gombra.
    - Megjelenik az ábrák előnézete a végső méretekkel (mm, px, DPI, színmód), a táblázatok és
      a LaTeX kódjuk, valamint az egyenletek (LaTeX és renderelt kép).
    - Letölthető a **teljes ZIP csomag**, külön az **Excel** és a **LaTeX** fájlok.
    - A figyelmeztetések jelzik például az alacsony eredeti felbontást vagy a hiányzó
      képaláírást.
-2. **🧩 Sablonok**: új sablon létrehozása, vagy meglévő szerkesztése az összes paraméterrel.
+2. ** Sablonok**: új sablon létrehozása, vagy meglévő szerkesztése az összes paraméterrel.
    Mentéskor a rendszer ellenőrzi a sablont (érvényes értéktartományok, a formátum és a
    színmód összeillése, fájlnévminta). Itt lehet JSON-t importálni és exportálni, és itt
    törölhetők a saját sablonok.
-3. **ℹ Súgó**: rövid használati útmutató.
+3. ** Súgó**: rövid használati útmutató.
 
 A saját sablonok alapértelmezés szerint a `./user_templates/` mappába kerülnek. Ez a
 `MF_TEMPLATE_DIR` környezeti változóval módosítható.
@@ -277,8 +277,7 @@ pytest -q
 A 71 teszt lefedi a sablonvalidációt és -tárolást, minden képformátumot és színmódot (a
 DPI-t és a fizikai méretet is ellenőrzi), a DOCX/PDF/Markdown kinyerést, az OMML → LaTeX
 konverziót, az Excel- és LaTeX-formázást, a teljes ZIP csomagot, a CLI-t és a Streamlit
-felületet (`AppTest`). A GitHub Actions minden push után lefuttatja őket (Python 3.10,
-3.12 és 3.13).
+felületet (`AppTest`). A tesztek Python 3.10 és 3.13 alatt is hibátlanul lefutnak.
 
 ## Korlátok
 
@@ -320,8 +319,7 @@ journal-figure-formatter/
 │       └── latex_templates/*.j2    # LaTeX Jinja2 sablonok
 ├── examples/make_sample.py         # mintakézirat (DOCX + PDF) generátor
 ├── tests/                          # pytest tesztek
-├── requirements.txt, requirements-dev.txt, pyproject.toml
-└── .github/workflows/tests.yml     # CI
+└── requirements.txt, requirements-dev.txt, pyproject.toml
 ```
 
 ## Licenc
