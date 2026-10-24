@@ -1,0 +1,33 @@
+{
+  "id": "acs",
+  "name": "ACS Publications",
+  "publisher": "American Chemical Society",
+  "description": "ACS: 3.25 / 7 hüvelyk szélesség, 300 dpi színes, 1200 dpi vonalas ábra, CMYK nyomdai színmód.",
+  "figure": {
+    "dpi": 300,
+    "line_art_dpi": 1200,
+    "color_mode": "CMYK",
+    "file_format": "TIFF",
+    "single_column_mm": 82.5,
+    "one_half_column_mm": 0,
+    "double_column_mm": 177.8,
+    "max_height_mm": 235,
+    "font_family": "Arial",
+    "font_size_pt": 8,
+    "min_font_size_pt": 4.5,
+    "filename_pattern": "Figure{number}"
+  },
+  "table": {
+    "font_family": "Arial",
+    "font_size_pt": 8,
+    "border_style": "booktabs",
+    "caption_position": "top",
+    "header_fill": "FFFFFF"
+  },
+  "equation": {
+    "dpi": 600,
+    "file_format": "TIFF",
+    "font_family": "Arial",
+    "font_size_pt": 9
+  }
+}

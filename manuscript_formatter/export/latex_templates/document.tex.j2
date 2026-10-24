@@ -1,0 +1,32 @@
+% Automatikusan generálva: Journal Figure Formatter
+% Sablon: \VAR{template.name} (\VAR{template.id})
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\BLOCK{if needs_xcolor}
+\usepackage[table]{xcolor}
+\BLOCK{endif}
+\BLOCK{if font_package}
+\VAR{font_package}
+\BLOCK{endif}
+\usepackage[a4paper,margin=2cm]{geometry}
+
+\begin{document}
+
+\BLOCK{for table in tables}
+\VAR{table}
+
+\BLOCK{endfor}
+\BLOCK{if equations}
+\section*{Equations}
+\BLOCK{for eq in equations}
+\begin{equation}
+  \VAR{eq.latex}
+  \label{eq:\VAR{eq.number}}
+\end{equation}
+
+\BLOCK{endfor}
+\BLOCK{endif}
+\end{document}

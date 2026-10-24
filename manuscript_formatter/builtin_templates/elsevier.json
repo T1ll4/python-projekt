@@ -1,0 +1,32 @@
+{
+  "id": "elsevier",
+  "name": "Elsevier (általános)",
+  "publisher": "Elsevier",
+  "description": "Elsevier artwork irányelvek: 300 dpi fotó, 1000 dpi vonalas ábra, 90/140/190 mm szélesség.",
+  "figure": {
+    "dpi": 300,
+    "line_art_dpi": 1000,
+    "color_mode": "RGB",
+    "file_format": "TIFF",
+    "single_column_mm": 90,
+    "one_half_column_mm": 140,
+    "double_column_mm": 190,
+    "max_height_mm": 240,
+    "font_family": "Arial",
+    "font_size_pt": 8,
+    "min_font_size_pt": 7,
+    "filename_pattern": "Fig{number}"
+  },
+  "table": {
+    "font_family": "Times New Roman",
+    "font_size_pt": 9,
+    "border_style": "booktabs",
+    "caption_position": "top"
+  },
+  "equation": {
+    "dpi": 600,
+    "file_format": "TIFF",
+    "font_family": "Times New Roman",
+    "font_size_pt": 10
+  }
+}

@@ -1,0 +1,37 @@
+\begin{\VAR{t.environment}}[htbp]
+  \centering
+  \VAR{t.font_size}
+\BLOCK{if t.zebra}
+  \rowcolors{2}{white}{gray!10}
+\BLOCK{endif}
+\BLOCK{if t.caption_top}
+  \caption{\VAR{t.caption}}
+  \label{\VAR{t.label}}
+\BLOCK{endif}
+  \begin{tabular}{\VAR{t.colspec}}
+\BLOCK{if t.border == 'booktabs'}
+    \toprule
+\BLOCK{elif t.border == 'grid'}
+    \hline
+\BLOCK{endif}
+    \VAR{t.header | join(' & ')} \\
+\BLOCK{if t.border == 'booktabs'}
+    \midrule
+\BLOCK{elif t.border == 'grid'}
+    \hline
+\BLOCK{endif}
+\BLOCK{for row in t.rows}
+    \VAR{row | join(' & ')} \\
+\BLOCK{if t.border == 'grid'}
+    \hline
+\BLOCK{endif}
+\BLOCK{endfor}
+\BLOCK{if t.border == 'booktabs'}
+    \bottomrule
+\BLOCK{endif}
+  \end{tabular}
+\BLOCK{if not t.caption_top}
+  \caption{\VAR{t.caption}}
+  \label{\VAR{t.label}}
+\BLOCK{endif}
+\end{\VAR{t.environment}}

@@ -1,0 +1,32 @@
+{
+  "id": "springer_nature",
+  "name": "Springer Nature",
+  "publisher": "Springer Nature",
+  "description": "Springer Nature: 84/174 mm szélesség, max. 234 mm magasság, 300 dpi fotó, 1200 dpi vonalas ábra, Helvetica/Arial 8-12 pt.",
+  "figure": {
+    "dpi": 300,
+    "line_art_dpi": 1200,
+    "color_mode": "RGB",
+    "file_format": "EPS",
+    "single_column_mm": 84,
+    "one_half_column_mm": 129,
+    "double_column_mm": 174,
+    "max_height_mm": 234,
+    "font_family": "Arial",
+    "font_size_pt": 9,
+    "min_font_size_pt": 8,
+    "filename_pattern": "Fig{number}"
+  },
+  "table": {
+    "font_family": "Arial",
+    "font_size_pt": 9,
+    "border_style": "booktabs",
+    "caption_position": "top"
+  },
+  "equation": {
+    "dpi": 600,
+    "file_format": "EPS",
+    "font_family": "Arial",
+    "font_size_pt": 10
+  }
+}
