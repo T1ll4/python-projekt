@@ -1,4 +1,4 @@
-#  Journal Figure Formatter
+# 📐 Journal Figure Formatter
 
 **Tudományos kéziratok ábráinak, grafikonjainak, egyenleteinek és táblázatainak automatikus
 kinyerése, átméretezése és formázása a folyóiratok vizuális és felbontásbeli
@@ -13,8 +13,86 @@ konvertált ábrák, a formázott Excel munkafüzet, a külön LaTeX táblázato
 
 ---
 
+## Gyors kezdés – felhasználói útmutató
+
+A programot egy böngészőben futó felületen lehet használni: fájlt kell feltölteni és
+gombokra kattintani, programozni nem kell hozzá.
+
+### 1. Egyszeri telepítés
+
+**Python 3.10 vagy újabb kell.** Ellenőrzés a Terminálban: `python3 --version`. Ha a verzió
+régebbi, vagy nincs Python, telepítse a <https://www.python.org/downloads/> oldalról
+(macOS-en Homebrew-val is lehet: `brew install python`).
+
+A program telepítése a projekt mappájában:
+
+```bash
+cd journal-figure-formatter
+python3 -m venv .venv
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+*(Opcionális)* ODT, RTF, Markdown vagy LaTeX kéziratokhoz telepíteni kell a pandocot is
+(`brew install pandoc`, Linuxon `sudo apt install pandoc`). DOCX és PDF fájlokhoz erre
+nincs szükség.
+
+### 2. Indítás (minden alkalommal)
+
+```bash
+cd journal-figure-formatter
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
+streamlit run app.py
+```
+
+A böngészőben magától megnyílik a `http://localhost:8501` cím. Leállítás: a Terminálban
+**Ctrl+C**.
+
+### 3. Kézirat feldolgozása – 📄 Feldolgozás fül
+
+1. **Kézirat feltöltése:** húzza be a `.docx` vagy `.pdf` fájlt.
+2. **Folyóirat-sablon:** válassza ki a célfolyóiratot (Elsevier, Springer Nature, IEEE,
+   PLOS ONE, ACS). Alatta látszanak a sablon előírásai, például
+   `TIFF · CMYK · 300/1200 dpi · 82.5/177.8 mm · Arial`.
+3. **Méretezés:** maradhat „(sablon szerint)”, vagy kényszeríthető egy- vagy kéthasábos méret.
+4. Kattintson a **▶ Feldolgozás** gombra.
+5. Az eredmény:
+   - számlálók: hány ábrát, táblázatot és egyenletet talált a program;
+   - **⚠ Figyelmeztetések:** például ha egy kép felbontása gyenge, vagy egy ábrához
+     nincs képaláírás;
+   - **Ábrák / Táblázatok / Egyenletek** alfülek előnézettel;
+   - letöltőgombok:
+     - **Teljes ZIP csomag:** ezt lehet a kiadónak beküldeni;
+     - **Excel táblázatok;**
+     - **LaTeX fájlok.**
+
+### 4. Saját folyóirat-sablon – 🧩 Sablonok fül
+
+Ha a célfolyóirat nincs a listában, vagy más az előírása:
+
+1. Válassza a **➕ Új sablon** lehetőséget, vagy egy meglévő sablont kiindulásnak.
+2. Adja meg az azonosítót és a nevet, majd állítsa be a DPI-t, a színmódot, a
+   fájlformátumot, a hasábszélességet (mm), a betűtípust és a táblázatstílust.
+3. Kattintson a **💾 Mentés** gombra. Az új sablon ezután megjelenik a Feldolgozás fülön.
+4. A sablon JSON-ként exportálható és importálható, így egy kollégának is odaadható.
+
+### 5. Kipróbálás mintakézirattal
+
+Ha nincs kéznél kézirat, generálható egy minta:
+
+```bash
+pip install reportlab
+python examples/make_sample.py examples/output
+```
+
+Ezután töltse fel az `examples/output/sample_manuscript.docx` vagy a
+`sample_manuscript.pdf` fájlt a felületen.
+
+---
+
 ## Tartalom
 
+- [🚀 Gyors kezdés – felhasználói útmutató](#-gyors-kezdés--felhasználói-útmutató)
 - [Fő funkciók](#fő-funkciók)
 - [Architektúra](#architektúra)
 - [Telepítés](#telepítés)
@@ -88,18 +166,18 @@ streamlit run app.py
 
 Ezután a böngészőben megnyílik a `http://localhost:8501` cím.
 
-1. ** Feldolgozás**: töltse fel a kéziratot, válassza ki a folyóirat-sablont és ha kell,
+1. **📄 Feldolgozás**: töltse fel a kéziratot, válassza ki a folyóirat-sablont és ha kell,
    a méretezési módot, majd kattintson a **▶ Feldolgozás** gombra.
    - Megjelenik az ábrák előnézete a végső méretekkel (mm, px, DPI, színmód), a táblázatok és
      a LaTeX kódjuk, valamint az egyenletek (LaTeX és renderelt kép).
    - Letölthető a **teljes ZIP csomag**, külön az **Excel** és a **LaTeX** fájlok.
    - A figyelmeztetések jelzik például az alacsony eredeti felbontást vagy a hiányzó
      képaláírást.
-2. ** Sablonok**: új sablon létrehozása, vagy meglévő szerkesztése az összes paraméterrel.
+2. **🧩 Sablonok**: új sablon létrehozása, vagy meglévő szerkesztése az összes paraméterrel.
    Mentéskor a rendszer ellenőrzi a sablont (érvényes értéktartományok, a formátum és a
    színmód összeillése, fájlnévminta). Itt lehet JSON-t importálni és exportálni, és itt
    törölhetők a saját sablonok.
-3. ** Súgó**: rövid használati útmutató.
+3. **ℹ Súgó**: rövid használati útmutató.
 
 A saját sablonok alapértelmezés szerint a `./user_templates/` mappába kerülnek. Ez a
 `MF_TEMPLATE_DIR` környezeti változóval módosítható.
