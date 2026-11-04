@@ -92,7 +92,7 @@ Ezután töltse fel az `examples/output/sample_manuscript.docx` vagy a
 
 ## Tartalom
 
-- [🚀 Gyors kezdés – felhasználói útmutató](#-gyors-kezdés--felhasználói-útmutató)
+- [🚀 Gyors kezdés – felhasználói útmutató](#gyors-kezdés--felhasználói-útmutató)
 - [Fő funkciók](#fő-funkciók)
 - [Architektúra](#architektúra)
 - [Telepítés](#telepítés)
